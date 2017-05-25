@@ -31,19 +31,17 @@ public class M extends AppCompatActivity {
     class myTask extends AsyncTask<Integer,Integer,Integer> {
         @Override
         protected Integer doInBackground(Integer... params) {
-            for(int i = 1; ; i++){
+            for(int i = 1; ; i++) {
                 if (isCancelled()) return null;
-                try {
-                    if(clicked) {
-                        return i;
-                    }
-                    else{
+                else if (clicked) return i;
+                else {
+                    try {
                         Thread.sleep(1000);
-                        publishProgress(i,params[0]);
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                        publishProgress(i, params[0]);
+                     } catch(InterruptedException e){
+                        e.printStackTrace();
                 }
+            }
             }
         }
 
