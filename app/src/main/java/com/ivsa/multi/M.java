@@ -31,6 +31,11 @@ public class M extends AppCompatActivity {
 
     class myTask extends AsyncTask<Integer,Integer,Integer> {
         @Override
+        protected void onPreExecute() {
+            img.setImageResource(draw[index]);
+        }
+
+        @Override
         protected Integer doInBackground(Integer... params) {
             for(int i = 1; ; i++) {
                 if (isCancelled()) return null;
