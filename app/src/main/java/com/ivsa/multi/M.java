@@ -58,12 +58,7 @@ public class M extends AppCompatActivity {
         @Override
         protected void onPostExecute(Integer integer) {
             clicked = false;
-            time.setText(names[index]+"선택"+"("+integer +"초"+")");
-        }
-
-        @Override
-        protected void onCancelled() {
-            super.onCancelled();
+            time.setText(names[index]+"선택"+"("+ (integer-1) +"초"+")");
         }
     }
 
