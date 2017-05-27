@@ -52,7 +52,7 @@
             android:layout_margin="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Which one?"
+            android:text="오늘의 메뉴는?"
             android:textSize="35dp" />
 
         <ImageView
@@ -60,7 +60,7 @@
             android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@drawable/fork" />
 
         <TextView
             android:id="@+id/ttime"

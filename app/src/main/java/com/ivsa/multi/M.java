@@ -15,11 +15,13 @@ public class M extends AppCompatActivity {
     myTask task;
     int index = 0;
     Boolean clicked = false;
-    String[] names = {"햄버거","피자","치킨","감자"};
-    int[] draw = {R.drawable.hamburger, R.drawable.pizza, R.drawable.chicken,R.drawable.potato};
+    String[] names = {"햄버거","피자","치킨","스파게티","샐러드"};
+    int[] draw = {R.drawable.hamburger, R.drawable.pizza, R.drawable.chicken,
+                  R.drawable.spagetti,  R.drawable.salad};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("오늘의 메뉴");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_m);
         count = (EditText) findViewById(R.id.ecount);
@@ -39,8 +41,8 @@ public class M extends AppCompatActivity {
                         publishProgress(i, params[0]);
                      } catch(InterruptedException e){
                         e.printStackTrace();
+                        }
                 }
-            }
             }
         }
 
@@ -75,7 +77,7 @@ public class M extends AppCompatActivity {
         else {
             task.cancel(true);
             task = null;
-            img.setImageResource(R.mipmap.ic_launcher);
+            img.setImageResource(R.drawable.fork);
             time.setText("");
             time.setVisibility(View.INVISIBLE);
         }
