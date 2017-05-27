@@ -3,7 +3,6 @@ package com.ivsa.multi;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -33,10 +32,10 @@ public class M extends AppCompatActivity {
         protected Integer doInBackground(Integer... params) {
             for(int i = 1; ; i++) {
                 if (isCancelled()) return null;
-                else if (clicked) return i;
                 else {
                     try {
                         Thread.sleep(1000);
+                        if (clicked) return i;
                         publishProgress(i, params[0]);
                      } catch(InterruptedException e){
                         e.printStackTrace();
@@ -72,10 +71,11 @@ public class M extends AppCompatActivity {
         if(v.getId() == R.id.imageView) {
             if (task == null) {
                 task = new myTask();
-                Log.d("Number:",count.getText().toString());
                 task.execute(Integer.parseInt(count.getText().toString()));
             }
-            else clicked = true;
+            else {
+                clicked = true;
+            }
         }
         else {
             task.cancel(true);
